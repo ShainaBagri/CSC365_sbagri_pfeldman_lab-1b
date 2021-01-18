@@ -76,10 +76,11 @@ def numStudents(df):
     print("6: ", len(df[df['Grade'] == 6]))
 
 def main():
-    data_dir = "students.txt"
     try:
-        df_students = pd.read_csv(data_dir, header=None, names=['StLastName', 'StFirstName', 
-            'Grade', 'Classroom', 'Bus', 'GPA', 'TLastName', 'TFirstName'])
+        df_students = pd.read_csv("list.txt", header=None, names=['StLastName', 'StFirstName', 
+            'Grade', 'Classroom', 'Bus', 'GPA'])
+        df_teachers = pd.read_csv("teachers.txt", header=None, names=['TLastName', 'TFirstName',
+            'Classroom'])
     except IOError as e:
         print(e)
         exit()
@@ -97,15 +98,15 @@ def main():
                 lastNameBusSearch(df_students, lastName)
             else:
                 continue
-
+ 
         elif split[0]=="Teacher:" or split[0]=="T:":
             lastName = split[1].upper()
             teacherSearch(df_students, lastName)
-
+ 
         elif split[0]=="B:" or split[0]=="Bus:":
             number = int(split[1])
             busSearch(df_students, number)
-
+ 
         elif split[0]=="Grade:" or split[0]=="G:":
             number = int(split[1])
             if len(split) != 3:
@@ -116,20 +117,20 @@ def main():
                 lowestGPA(df_students, number)
             else:
                 continue
-
+ 
         elif split[0]=="A:" or split[0]=="Average:":
             number = int(split[1])
             avgGPA(df_students, number)
-
+ 
         elif split[0]=="I" or split[0]=="Info":
             numStudents(df_students)
-
+ 
         elif split[0]=="Q" or split[0]=="Quit":
             quit = True
-
+ 
         else:
             continue
-
-
+ 
+ 
 if __name__ == "__main__":
     main()
