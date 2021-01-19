@@ -231,7 +231,7 @@ T: SMITH
 // Testing Requirement NR1
 // short form command name, existing classroom
 // expected output:
-// StLastName StFirstName
+//    StLastName StFirstName
 // 3   RACANEL4O        NOEL
 // 16   CORONADO      DIMPLE
 // 24     BOYTER         WAN
@@ -263,3 +263,6 @@ C: 112 T
 // expected output
 
 Classroom: 109 Teacher
+
+// TC-27
+// Testing Requirement
