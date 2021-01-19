@@ -254,13 +254,17 @@ Classroom: 104 Student
 // Testing Requirement NR2
 // short form command name, existing classroom
 // expected output:
+//     TLastName TFirstName
+// 11  CHIONCHIO      PERLA
 
 C: 112 T
 
 // TC-26
 // Testing Requirement NR2
 // long form command name, existing classroom
-// expected output
+// expected output:
+//   TLastName TFirstName
+// 8   GAMBREL        JAE
 
 Classroom: 109 Teacher
 
