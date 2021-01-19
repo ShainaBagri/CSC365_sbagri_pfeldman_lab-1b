@@ -1,5 +1,6 @@
 import pandas as pd
 
+# Works with 1 teacher per classroom; breaks with multiple teachers
 def lastNameSearch(df_students, df_teachers, lastName):
     teacherLastNames = []
     teacherFirstNames = []
@@ -13,8 +14,10 @@ def lastNameSearch(df_students, df_teachers, lastName):
                 classNums = data
         for i in range(len(classNums)):
             teachers = df_teachers.loc[df_teachers['Classroom']==classNums.iat[i]]
-            teacherLastNames.append(teachers.iloc[0]['TLastName'])
-            teacherFirstNames.append(teachers.iloc[0]['TFirstName'])
+            for lastName in teachers['TLastName']:
+                teacherLastNames.append(lastName)
+            for firstName in teachers['TFirstName']:
+                teacherFirstNames.append(firstName)
         new_df['TLastName'] = teacherLastNames
         new_df['TFirstName'] = teacherFirstNames
         print(new_df)
@@ -51,13 +54,6 @@ def gradeSearch(df, grade):
     else:
         print(new_df)
 
-#def teacherByGradeSearch(df_students, df_teachers, grade):
- #   new_df = df_students.loc[df_students['Grade']==grade, ['Classroom']]
-  #  for i in range(len(new_df.index)):
-   #         teachers = df_teachers.loc[df_teachers['Classroom']==new_df.iloc[i]['Classroom']]
-    #        teacherLastNames.append(teachers.iloc[0]['TLastName'])
-     #       teacherFirstNames.append(teachers.iloc[0]['TFirstName'])
-    #print(type(new_df))
 
 def avgGPA(df, grade):
     new_df = df.loc[df['Grade'] == grade]
@@ -106,10 +102,35 @@ def numStudents(df):
     print("5: ", len(df[df['Grade'] == 5]))
     print("6: ", len(df[df['Grade'] == 6]))
 
-def classNumSearch(df_teachers, classNum):
+#NR1
+def classNumStudentSearch(df_students, classNum):
+    new_df = df_students.loc[df_students['Classroom'] == classNum, ['StLastName', 'StFirstName']]
+    print(new_df)
+
+#NR2
+def classNumTeacherSearch(df_teachers, classNum):
     new_df = df_teachers.loc[df_teachers['Classroom'] == classNum, ['TLastName', 'TFirstName']]
     print(new_df)
 
+#NR3   
+def teacherByGradeSearch(df_students, df_teachers, grade):
+    new_df = df_students.loc[df_students['Grade']==grade, ['Classroom']]
+    for i in range(len(new_df.index)):
+            teachers = df_teachers.loc[df_teachers['Classroom']==new_df.iloc[i]['Classroom'], ['TLastName', 'TFirstName']]
+    print(teachers)
+
+#NR4
+def enrollmentByClass(df_students):
+    classes = df_students['Classroom'].unique()
+    classes.sort()
+    for classroom in classes:
+        new_df = df_students.loc[df_students['Classroom'] == classroom, ['Classroom', 'StLastName', 'StFirstName']]
+        num = new_df['StLastName'].value_counts().sum()
+        print(classroom, " ", num)
+
+#NR5
+def analyzeData(df_students, df_teachers):
+    print(df_students)
 
 def main():
     try:
@@ -121,15 +142,13 @@ def main():
         print(e)
         exit()
 
-    teacherByGradeSearch(df_students, df_teachers, 2)
-
     quit = False
     while not quit:
         command = str(input("Type your command: "))
         split = command.split()
 
         if len(split) == 1:
-            if split[0]!="I" and split[0]!="Info" and split[0]!="Q" and split[0]!="Quit":
+            if split[0]!="I" and split[0]!="Info" and split[0]!="Q" and split[0]!="Quit" and split[0]!="E" and split[0]!="Enrollment":
                 continue
 
         if split[0]=="S:" or split[0]=="Student:":
@@ -151,8 +170,10 @@ def main():
  
         elif split[0]=="Grade:" or split[0]=="G:":
             number = int(split[1])
-            if len(split) != 3:
+            if split[2]=="Student" or split[2]=="S":
                 gradeSearch(df_students, number)
+            elif split[2]=="Teacher" or split[2]=="T":
+                teacherByGradeSearch(df_students, df_teachers, number)
             elif split[2]=="High" or split[2]=="H":
                 highestGPA(df_students, df_teachers, number)
             elif split[2]=="Low" or split[2]=="L":
@@ -160,9 +181,19 @@ def main():
             else:
                 continue
  
+        elif split[0]=="Classroom:" or split[0]=="C:":
+            number = int(split[1])
+            if split[2]=="Student" or split[2]=="S":
+                classNumStudentSearch(df_students, number)
+            elif split[2]=="Teacher" or split[2]=="T":
+                classNumTeacherSearch(df_teachers, number)
+        
         elif split[0]=="A:" or split[0]=="Average:":
             number = int(split[1])
             avgGPA(df_students, number)
+
+        elif split[0]=="E" or split[0]=="Enrollment":
+            enrollmentByClass(df_students)
  
         elif split[0]=="I" or split[0]=="Info":
             numStudents(df_students)
