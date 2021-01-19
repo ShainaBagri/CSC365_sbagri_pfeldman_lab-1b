@@ -272,28 +272,14 @@ Classroom: 109 Teacher
 // Testing Requirement NR3
 // long form command name, existing grade
 // expected output:
-//    StLastName StFirstName
-// 4     WOOLERY       NOLAN
-// 7     VILARDO    EMMANUEL
-// 11   LIBRANDI        TODD
-// 19      HAVIR      BOBBIE
-// 26      SARAO      DIEDRA
-// 30    VANCOTT        MIKE
-// 31   WICINSKY      TERESE
-// 34     KOZOLA      BUSTER
-// 37   MULLINGS    LEIGHANN
-// 40   BUSSMANN       BILLY
-// 41     BERBES        DICK
-// 42    MULGREW     RANDELL
-// 54     TOWLEY        LANE
+//     TLastName TFirstName
+// 11  CHIONCHIO      PERLA
 
 // TC-28
 // Testing Requirement NR3
 // short form command name, existing grade
 // expected output:
-//    StLastName StFirstName
-// 38     SAELEE      DANILO
-// 46      GARTH        JOHN
-
-G: 1 S
+//   TLastName TFirstName
+// 2    FALKER     ADOLPH
+G: 1 T
 
