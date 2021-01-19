@@ -275,11 +275,14 @@ Classroom: 109 Teacher
 //     TLastName TFirstName
 // 11  CHIONCHIO      PERLA
 
+Grade: 4 Teacher
+
 // TC-28
 // Testing Requirement NR3
 // short form command name, existing grade
 // expected output:
 //   TLastName TFirstName
 // 2    FALKER     ADOLPH
+
 G: 1 T
 
