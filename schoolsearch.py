@@ -51,6 +51,14 @@ def gradeSearch(df, grade):
     else:
         print(new_df)
 
+#def teacherByGradeSearch(df_students, df_teachers, grade):
+ #   new_df = df_students.loc[df_students['Grade']==grade, ['Classroom']]
+  #  for i in range(len(new_df.index)):
+   #         teachers = df_teachers.loc[df_teachers['Classroom']==new_df.iloc[i]['Classroom']]
+    #        teacherLastNames.append(teachers.iloc[0]['TLastName'])
+     #       teacherFirstNames.append(teachers.iloc[0]['TFirstName'])
+    #print(type(new_df))
+
 def avgGPA(df, grade):
     new_df = df.loc[df['Grade'] == grade]
     if(new_df.empty):
@@ -98,7 +106,9 @@ def numStudents(df):
     print("5: ", len(df[df['Grade'] == 5]))
     print("6: ", len(df[df['Grade'] == 6]))
 
-#def classNumSearch(df_students, classNum):
+def classNumSearch(df_teachers, classNum):
+    new_df = df_teachers.loc[df_teachers['Classroom'] == classNum, ['TLastName', 'TFirstName']]
+    print(new_df)
 
 
 def main():
@@ -110,6 +120,8 @@ def main():
     except IOError as e:
         print(e)
         exit()
+
+    teacherByGradeSearch(df_students, df_teachers, 2)
 
     quit = False
     while not quit:
