@@ -1,0 +1,228 @@
+// CSC 365
+// Lab 1-b test suite
+
+// TC-1
+// Tests Requirements R3, R4
+// short form command name, existing student
+// expected output:
+//         StLastName StFirstName  Grade  Classroom TLastName TFirstName
+//      19      HAVIR      BOBBIE      2        108     HAMER      GAVIN
+
+S: HAVIR
+
+// TC-2
+// Tests Requirements R3, R4
+// long form command name, existing student
+// expected output:
+//         StLastName StFirstName  Grade  Classroom TLastName TFirstName
+//      9     CORKER      CARTER      4        105     HANTZ        JED
+
+Student: CORKER
+
+// TC-3
+// Tests Requirements R3, R5
+// short form command name, existing student
+// expected output:
+//         StLastName StFirstName  Bus
+//      9     CORKER      CARTER   53
+
+S: CORKER B
+
+// TC-4
+// Tests Requirements R3, R5
+// long form command name, existing student
+// expected output:
+//         StLastName StFirstName  Bus
+//      19      HAVIR      BOBBIE    0
+
+Student: HAVIR Bus
+
+// TC-5
+// Tests Requirements R3, R6
+// short form command name, existing teacher
+// expected output:
+//     StLastName StFirstName
+// 17  WORBINGTON      DEEDRA
+// 21    SPANICEK      KENDRA
+// 23       GUICE        CODI
+// 33        GLOR        HUNG
+// 39         GUM        NOAH
+// 47      NOVICK     ROLLAND
+// 53      DELUNA     KRYSTAL
+// 59        COMO      ZANDRA
+
+T: CHIONCHIO
+
+// TC-6
+// Tests Requirements R3, R6
+// long form command name, existing teacher
+// expected output:
+//    StLastName StFirstName
+// 51     DURAND      CARLEE
+
+Teacher: COOL
+
+// TC-7
+// Tests Requirements R3, R7
+// short form command name, existing grade
+// expected output:
+//    StLastName StFirstName
+// 38     SAELEE      DANILO
+// 46      GARTH        JOHN
+
+G: 1
+
+// TC-8
+// Tests Requirements R3, R7
+// long form command name, existing grade
+// expected output:
+//     StLastName StFirstName
+// 0       COOKUS        XUAN
+// 2     ELHADDAD      SHANTE
+// 8    BRODERSEN         HYE
+// 12    SWEDLUND      SHARRI
+// 18     CIGANEK       MANIE
+// 28   COVINGTON       TOMAS
+// 29       EARLY        TORY
+// 43     LINHART        LELA
+// 49  THEUNISSEN       GRACE
+
+Grade: 3
+
+// TC-9
+// Tests Requirements R3, R8
+// short form command name, existing bus
+// expected output:
+//    StLastName StFirstName  Grade  Classroom
+// 0      COOKUS        XUAN      3        107
+// 2    ELHADDAD      SHANTE      3        107
+// 10   IMMERMAN       DEVIN      4        105
+// 14     OBREIN        STAN      6        111
+// 16   CORONADO      DIMPLE      6        102
+// 26      SARAO      DIEDRA      2        108
+// 29      EARLY        TORY      3        107
+// 35    KEMERER     ROSETTA      6        102
+
+B: 52
+
+// TC-10
+// Tests Requirements R3, R8
+// long form command name, existing bus
+// expected output:
+//     StLastName StFirstName  Grade  Classroom
+// 3    RACANELLO        NOEL      6        102
+// 7      VILARDO    EMMANUEL      2        104
+// 32       KRAKE    VALENTIN      6        109
+// 36        BEAN       INGER      6        111
+// 40    BUSSMANN       BILLY      2        108
+// 50  FEYEREISEN    WILFREDO      6        111
+
+Bus: 56
+
+// TC-11
+// Tests Requirements R3, R9
+// short form command name, existing grade, high
+// expected output:
+//    StLastName StFirstName   GPA TLastName TFirstName  Bus
+// 12   SWEDLUND      SHARRI  3.24    FAFARD      ROCIO   55
+
+G: 3 H
+
+// TC-12
+// Tests Requirements R3, R9
+// long form command name, existing grade, high
+// expected output:
+//    StLastName StFirstName   GPA TLastName TFirstName  Bus
+// 46      GARTH        JOHN  3.14    FALKER     ADOLPH    0
+
+Grade: 1 High
+
+// TC-13
+// Tests Requirements R3, R9
+// long form command name, existing grade, low
+// expected output:
+//    StLastName StFirstName   GPA TLastName TFirstName  Bus
+// 38     SAELEE      DANILO  2.85    FALKER     ADOLPH   54
+
+G: 1 L
+
+// TC-14
+// Tests Requirements R3, R9
+// long form command name, existing grade, low
+// expected output:
+//    StLastName StFirstName   GPA TLastName TFirstName  Bus
+// 18    CIGANEK       MANIE  2.79    FAFARD      ROCIO   53
+
+Grade: 3 Low
+
+// TC-15
+// Tests Requirements R3, R10
+// short form command name, existing grade
+// expected output:
+// Grade   Average GPA
+// 1        2.995
+
+A: 1
+
+// TC-16
+// Tests Requirements R3, R10
+// long form command name, existing grade\
+// expected output:
+// Grade   Average GPA
+// 3        3.048888888888889
+
+Average: 3
+
+// TC-17
+// Tests Requirement R11
+// long form command name
+// expected output:
+// 0:  0
+// 1:  2
+// 2:  13
+// 3:  9
+// 4:  15
+// 5:  0
+// 6:  21
+
+Info
+
+// TC-18
+// Testing Requirement E1
+// short form command name
+// expected output:
+// No students in this grade
+
+G: 10
+
+// TC-19
+// Testing Requirement E1
+// not real command name
+// expected output:
+// Type your command:
+
+F
+
+// TC-20
+// Testing Requirement E1
+// short form command name
+// expected output:
+// Bus route not found
+
+B: 2
+
+// TC-21
+// Testing Requirement E1
+// long form command name
+// expected output:
+// Type your command:
+
+Student: CORKER W
+
+// TC-22
+// Testing Requirement E1
+// long form command name
+// expected output:
+// No teacher with this last name exists
+
+T: SMITH

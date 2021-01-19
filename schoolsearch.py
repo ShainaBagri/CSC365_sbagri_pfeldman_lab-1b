@@ -116,6 +116,10 @@ def main():
         command = str(input("Type your command: "))
         split = command.split()
 
+        if len(split) == 1:
+            if split[0]!="I" and split[0]!="Info" and split[0]!="Q" and split[0]!="Quit":
+                continue
+
         if split[0]=="S:" or split[0]=="Student:":
             lastName = split[1].upper()
             if len(split) != 3:
