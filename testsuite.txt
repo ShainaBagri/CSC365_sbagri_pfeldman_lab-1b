@@ -166,7 +166,7 @@ A: 1
 
 // TC-16
 // Tests Requirements R3, R10
-// long form command name, existing grade\
+// long form command name, existing grade
 // expected output:
 // Grade   Average GPA
 // 3        3.048888888888889
@@ -189,7 +189,7 @@ Info
 
 // TC-18
 // Testing Requirement E1
-// short form command name
+// short form command name, nonexisting grade
 // expected output:
 // No students in this grade
 
@@ -197,7 +197,7 @@ G: 10
 
 // TC-19
 // Testing Requirement E1
-// not real command name
+// nonexisting command name
 // expected output:
 // Type your command:
 
@@ -205,7 +205,7 @@ F
 
 // TC-20
 // Testing Requirement E1
-// short form command name
+// short form command name, nonexisting bus
 // expected output:
 // Bus route not found
 
@@ -213,7 +213,7 @@ B: 2
 
 // TC-21
 // Testing Requirement E1
-// long form command name
+// long form command name, nonexisting flag
 // expected output:
 // Type your command:
 
@@ -221,8 +221,44 @@ Student: CORKER W
 
 // TC-22
 // Testing Requirement E1
-// long form command name
+// short form command name, nonexisting teacher
 // expected output:
 // No teacher with this last name exists
 
 T: SMITH
+
+// TC-23
+// Testing Requirement NR1
+// short form command name, existing classroom
+// expected output:
+// // // // // // 
+C: 1-202 S
+
+// TC-24
+// Testing Requirement NR1
+//     D form command name
+// expected output:
+// StLastName StFirstName
+// 3   RACANELLO        NOEL
+// 16   CORONADO    4 DIMPLE
+// 24     BOYTER        long
+// 35    KEMERER , existing classroom    ROSETTA
+// 45  DEM//   StLastName StFirstName
+// 4    WOOLERY       NOLAN
+// 7    VILARDO    EMMANUEL
+
+Classroom: 104 Student
+
+// TC-25
+// Testing Requirement NR2
+// short form command name, existing classroom
+// expected output:
+
+C: 112 T
+
+// TC-26
+// Testing Requirement NR2
+// long form command name, existing classroom
+// expected output
+
+Classroom: 109 Teacher
