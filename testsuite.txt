@@ -231,19 +231,20 @@ T: SMITH
 // Testing Requirement NR1
 // short form command name, existing classroom
 // expected output:
-// // // // // // 
-C: 1-202 S
+// StLastName StFirstName
+// 3   RACANEL4O        NOEL
+// 16   CORONADO      DIMPLE
+// 24     BOYTER         WAN
+// 35    KEMERER     ROSETTA
+// 45  DEMARTINI     DEWAYNE
+
+C: 102 S
 
 // TC-24
 // Testing Requirement NR1
-//     D form command name
+// long form command name, existing classroom
 // expected output:
-// StLastName StFirstName
-// 3   RACANELLO        NOEL
-// 16   CORONADO    4 DIMPLE
-// 24     BOYTER        long
-// 35    KEMERER , existing classroom    ROSETTA
-// 45  DEM//   StLastName StFirstName
+//   StLastName StFirstName
 // 4    WOOLERY       NOLAN
 // 7    VILARDO    EMMANUEL
 
