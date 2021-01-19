@@ -1,11 +1,22 @@
 import pandas as pd
 
-def lastNameSearch(df, lastName):
-    new_df = df.loc[df['StLastName'] == lastName,
-        ['StLastName', 'StFirstName', 'Grade', 'Classroom', 'TLastName', 'TFirstName']]
+def lastNameSearch(df_students, df_teachers, lastName):
+    teacherLastNames = []
+    teacherFirstNames = []
+    new_df = df_students.loc[df_students['StLastName'] == lastName,
+        ['StLastName', 'StFirstName', 'Grade', 'Classroom']]
     if new_df.empty:
         print("No student with this last name exists")
     else:
+        for key, data in new_df.items():
+            if key=='Classroom':
+                classNums = data
+        for i in range(len(classNums)):
+            teachers = df_teachers.loc[df_teachers['Classroom']==classNums.iat[i]]
+            teacherLastNames.append(teachers.iloc[0]['TLastName'])
+            teacherFirstNames.append(teachers.iloc[0]['TFirstName'])
+        new_df['TLastName'] = teacherLastNames
+        new_df['TFirstName'] = teacherFirstNames
         print(new_df)
 
 def lastNameBusSearch(df, lastName):
@@ -16,9 +27,9 @@ def lastNameBusSearch(df, lastName):
     else:
         print(new_df)
 
-def teacherSearch(df, TLName):
-    new_df = df.loc[df['TLastName']==TLName, 
-        ['StLastName', 'StFirstName']]
+def teacherSearch(df_students, df_teachers, TLName):
+    classroom = df_teachers.loc[df_teachers['TLastName']==TLName, 'Classroom'].iat[0]
+    new_df = df_students.loc[df_students['Classroom'] == classroom, ['StLastName', 'StFirstName']]
     if new_df.empty:
         print("No teacher with this last name exists")
     else:
@@ -48,23 +59,35 @@ def avgGPA(df, grade):
         print("Grade \tAverage GPA")
         print(grade, " \t", new_df["GPA"].mean())
 
-def lowestGPA(df, grade):
-    new_df = df.loc[df['Grade'] == grade,
-        ['StLastName', 'StFirstName', 'GPA', 'TLastName', 'TFirstName', 'Bus']]
+def lowestGPA(df_students, df_teachers, grade):
+    new_df = df_students.loc[df_students['Grade'] == grade,
+        ['StLastName', 'StFirstName', 'GPA', 'Bus', 'Classroom']]
     if(new_df.empty):
         print("No students in this grade")
     else:
         minGPA = new_df["GPA"].min()
-        print(new_df.loc[new_df['GPA'] == minGPA])
+        student = new_df.loc[new_df['GPA'] == minGPA]
+        classroom = student['Classroom'].iat[0]
+        student = student.loc[:, ['StLastName', 'StFirstName', 'GPA', 'Bus']]
+        teacher = df_teachers.loc[df_teachers['Classroom'] == classroom, ['TLastName', 'TFirstName']]
+        student['TLastName'] = teacher['TLastName'].iat[0]
+        student['TFirstName'] = teacher['TFirstName'].iat[0]
+        print(student)
 
-def highestGPA(df, grade):
-    new_df = df.loc[df['Grade'] == grade,
-        ['StLastName', 'StFirstName', 'GPA', 'TLastName', 'TFirstName', 'Bus']]
+def highestGPA(df_students, df_teachers, grade):
+    new_df = df_students.loc[df_students['Grade'] == grade,
+        ['StLastName', 'StFirstName', 'GPA', 'Bus', 'Classroom']]
     if(new_df.empty):
         print("No students in this grade")
     else:
         maxGPA = new_df["GPA"].max()
-        print(new_df.loc[new_df['GPA'] == maxGPA])
+        student = new_df.loc[new_df['GPA'] == maxGPA]
+        classroom = student['Classroom'].iat[0]
+        student = student.loc[:, ['StLastName', 'StFirstName', 'GPA', 'Bus']]
+        teacher = df_teachers.loc[df_teachers['Classroom'] == classroom, ['TLastName', 'TFirstName']]
+        student['TLastName'] = teacher['TLastName'].iat[0]
+        student['TFirstName'] = teacher['TFirstName'].iat[0]
+        print(student)
 
 def numStudents(df):
     print("0: ", len(df[df['Grade'] == 0]))
@@ -74,6 +97,9 @@ def numStudents(df):
     print("4: ", len(df[df['Grade'] == 4]))
     print("5: ", len(df[df['Grade'] == 5]))
     print("6: ", len(df[df['Grade'] == 6]))
+
+#def classNumSearch(df_students, classNum):
+
 
 def main():
     try:
@@ -93,7 +119,7 @@ def main():
         if split[0]=="S:" or split[0]=="Student:":
             lastName = split[1].upper()
             if len(split) != 3:
-                lastNameSearch(df_students, lastName)
+                lastNameSearch(df_students, df_teachers, lastName)
             elif len(split) == 3 and (split[2] == "B" or split[2] == "Bus"):
                 lastNameBusSearch(df_students, lastName)
             else:
@@ -101,7 +127,7 @@ def main():
  
         elif split[0]=="Teacher:" or split[0]=="T:":
             lastName = split[1].upper()
-            teacherSearch(df_students, lastName)
+            teacherSearch(df_students, df_teachers, lastName)
  
         elif split[0]=="B:" or split[0]=="Bus:":
             number = int(split[1])
@@ -112,9 +138,9 @@ def main():
             if len(split) != 3:
                 gradeSearch(df_students, number)
             elif split[2]=="High" or split[2]=="H":
-                highestGPA(df_students, number)
+                highestGPA(df_students, df_teachers, number)
             elif split[2]=="Low" or split[2]=="L":
-                lowestGPA(df_students, number)
+                lowestGPA(df_students, df_teachers, number)
             else:
                 continue
  
