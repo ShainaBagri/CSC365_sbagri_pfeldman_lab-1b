@@ -286,3 +286,26 @@ Grade: 4 Teacher
 
 G: 1 T
 
+// TC-29
+// Testing Requirement NR4
+// long form command name
+// expected output:
+// 101   1
+// 102   5
+// 103   2
+// 104   2
+// 105   6
+// 106   2
+// 107   7
+// 108   11
+// 109   5
+// 110   2
+// 111   9
+// 112   8
+
+Enrollment
+
+// TC-30
+// Testing Requirement NR5
+// long form command name
+//
