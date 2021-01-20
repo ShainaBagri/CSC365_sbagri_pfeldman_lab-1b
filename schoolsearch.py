@@ -2,8 +2,6 @@ import pandas as pd
 
 # Works with 1 teacher per classroom; breaks with multiple teachers
 def lastNameSearch(df_students, df_teachers, lastName):
-    #teacherLastNames = []
-    #teacherFirstNames = []
     new_df = df_students.loc[df_students['StLastName'] == lastName,
         ['StLastName', 'StFirstName', 'Grade', 'Classroom']]
     if new_df.empty:
@@ -22,7 +20,6 @@ def lastNameSearch(df_students, df_teachers, lastName):
                 teacherLastNames.append(lastName)
             for firstName in teachers['TFirstName']:
                 teacherFirstNames.append(firstName)
-            print(teacherLastNames)
             new_df.at[new_df.index[i],'TLastName'] = teacherLastNames
             new_df.at[new_df.index[i],'TFirstName'] = teacherFirstNames
         print(new_df)
@@ -143,8 +140,58 @@ def enrollmentByClass(df_students):
         print(classroom, " ", num)
 
 #NR5
-def analyzeData(df_students, df_teachers):
-    print(df_students)
+def analyzeDataAll(df_students, df_teachers):
+    new_df = df_students.loc[:, ['GPA', 'Grade', 'Bus']]
+    new_df['TLastName'] = None
+    new_df['TFirstName'] = None
+    for key, data in df_students.items():
+        if key=='Classroom':
+            classNums = data
+    for i in range(len(classNums)):
+        teachers = df_teachers.loc[df_teachers['Classroom']==classNums.iat[i]]
+        teacherLastNames = []
+        teacherFirstNames = []
+        for lastName in teachers['TLastName']:
+            teacherLastNames.append(lastName)
+        for firstName in teachers['TFirstName']:
+            teacherFirstNames.append(firstName)
+        new_df.at[new_df.index[i],'TLastName'] = teacherLastNames
+        new_df.at[new_df.index[i],'TFirstName'] = teacherFirstNames
+    new_df.sort_values(by=['GPA', 'Grade', 'Bus'], inplace=True)
+    print(new_df)
+
+#NR5
+def analyzeDataGrade(df_students, df_teachers):
+    new_df = df_students.loc[:, ['GPA', 'Grade']]
+    new_df.sort_values(by=['GPA', 'Grade'], inplace=True)
+    print(new_df)
+
+#NR5
+def analyzeDataBus(df_students, df_teachers):
+    new_df = df_students.loc[:, ['GPA', 'Bus']]
+    new_df.sort_values(by=['GPA', 'Bus'], inplace=True)
+    print(new_df)
+
+#NR5
+def analyzeDataTeacher(df_students, df_teachers):
+    new_df = df_students.loc[:, ['GPA']]
+    new_df['TLastName'] = None
+    new_df['TFirstName'] = None
+    for key, data in df_students.items():
+        if key=='Classroom':
+            classNums = data
+    for i in range(len(classNums)):
+        teachers = df_teachers.loc[df_teachers['Classroom']==classNums.iat[i]]
+        teacherLastNames = []
+        teacherFirstNames = []
+        for lastName in teachers['TLastName']:
+            teacherLastNames.append(lastName)
+        for firstName in teachers['TFirstName']:
+            teacherFirstNames.append(firstName)
+        new_df.at[new_df.index[i],'TLastName'] = teacherLastNames
+        new_df.at[new_df.index[i],'TFirstName'] = teacherFirstNames
+    new_df.sort_values(by=['GPA'], inplace=True)
+    print(new_df)
 
 def main():
     try:
@@ -162,7 +209,7 @@ def main():
         split = command.split()
 
         if len(split) == 1:
-            if split[0]!="I" and split[0]!="Info" and split[0]!="Q" and split[0]!="Quit" and split[0]!="E" and split[0]!="Enrollment":
+            if split[0]!="I" and split[0]!="Info" and split[0]!="Q" and split[0]!="Quit" and split[0]!="E" and split[0]!="Enrollment" and split[0]!="D" and split[0]!="Data":
                 continue
 
         if split[0]=="S:" or split[0]=="Student:":
@@ -174,15 +221,15 @@ def main():
             else:
                 continue
  
-        elif split[0]=="Teacher:" or split[0]=="T:":
+        elif (split[0]=="Teacher:" or split[0]=="T:") and len(split)==2:
             lastName = split[1].upper()
             teacherSearch(df_students, df_teachers, lastName)
  
-        elif split[0]=="B:" or split[0]=="Bus:":
+        elif (split[0]=="B:" or split[0]=="Bus:") and len(split)==2:
             number = int(split[1])
             busSearch(df_students, number)
  
-        elif split[0]=="Grade:" or split[0]=="G:":
+        elif (split[0]=="Grade:" or split[0]=="G:") and len(split)==3:
             number = int(split[1])
             if split[2]=="Student" or split[2]=="S":
                 gradeSearch(df_students, number)
@@ -201,13 +248,27 @@ def main():
                 classNumStudentSearch(df_students, number)
             elif split[2]=="Teacher" or split[2]=="T":
                 classNumTeacherSearch(df_teachers, number)
+            else:
+                continue
         
-        elif split[0]=="A:" or split[0]=="Average:":
+        elif (split[0]=="A:" or split[0]=="Average:") and len(split)==2:
             number = int(split[1])
             avgGPA(df_students, number)
 
         elif split[0]=="E" or split[0]=="Enrollment":
             enrollmentByClass(df_students)
+
+        elif split[0]=="D" or split[0]=="Data":
+            if len(split) == 1:
+                analyzeDataAll(df_students, df_teachers)
+            elif split[1]=="Grade" or split[1]=="G":
+                analyzeDataGrade(df_students, df_teachers)
+            elif split[1]=="Bus" or split[1]=="B":
+                analyzeDataBus(df_students, df_teachers)
+            elif split[1]=="Teacher" or split[1]=="T":
+                analyzeDataTeacher(df_students, df_teachers)
+            else:
+                continue
  
         elif split[0]=="I" or split[0]=="Info":
             numStudents(df_students)
