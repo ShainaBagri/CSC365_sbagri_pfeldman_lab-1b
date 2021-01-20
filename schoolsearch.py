@@ -2,24 +2,29 @@ import pandas as pd
 
 # Works with 1 teacher per classroom; breaks with multiple teachers
 def lastNameSearch(df_students, df_teachers, lastName):
-    teacherLastNames = []
-    teacherFirstNames = []
+    #teacherLastNames = []
+    #teacherFirstNames = []
     new_df = df_students.loc[df_students['StLastName'] == lastName,
         ['StLastName', 'StFirstName', 'Grade', 'Classroom']]
     if new_df.empty:
         print("No student with this last name exists")
     else:
+        new_df['TLastName'] = None
+        new_df['TFirstName'] = None
         for key, data in new_df.items():
             if key=='Classroom':
                 classNums = data
         for i in range(len(classNums)):
             teachers = df_teachers.loc[df_teachers['Classroom']==classNums.iat[i]]
+            teacherLastNames = []
+            teacherFirstNames = []
             for lastName in teachers['TLastName']:
                 teacherLastNames.append(lastName)
             for firstName in teachers['TFirstName']:
                 teacherFirstNames.append(firstName)
-        new_df['TLastName'] = teacherLastNames
-        new_df['TFirstName'] = teacherFirstNames
+            print(teacherLastNames)
+            new_df.at[new_df.index[i],'TLastName'] = teacherLastNames
+            new_df.at[new_df.index[i],'TFirstName'] = teacherFirstNames
         print(new_df)
 
 def lastNameBusSearch(df, lastName):
@@ -105,19 +110,28 @@ def numStudents(df):
 #NR1
 def classNumStudentSearch(df_students, classNum):
     new_df = df_students.loc[df_students['Classroom'] == classNum, ['StLastName', 'StFirstName']]
-    print(new_df)
+    if new_df.empty:
+        print("Classroom not found")
+    else:
+        print(new_df)
 
 #NR2
 def classNumTeacherSearch(df_teachers, classNum):
     new_df = df_teachers.loc[df_teachers['Classroom'] == classNum, ['TLastName', 'TFirstName']]
-    print(new_df)
+    if new_df.empty:
+        print("Classroom not found")
+    else:
+        print(new_df)
 
 #NR3   
 def teacherByGradeSearch(df_students, df_teachers, grade):
     new_df = df_students.loc[df_students['Grade']==grade, ['Classroom']]
-    for i in range(len(new_df.index)):
+    if new_df.empty:
+        print("No teachers in this grade")
+    else:
+        for i in range(len(new_df.index)):
             teachers = df_teachers.loc[df_teachers['Classroom']==new_df.iloc[i]['Classroom'], ['TLastName', 'TFirstName']]
-    print(teachers)
+        print(teachers)
 
 #NR4
 def enrollmentByClass(df_students):

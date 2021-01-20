@@ -309,3 +309,28 @@ Enrollment
 // Testing Requirement NR5
 // long form command name
 //
+
+// TC-31
+// Testing Requirement E1
+// long form command name, nonexisting classroom
+// expected output:
+// Classroom not found
+
+Classroom: 5 Student
+
+// TC-32
+// Testing Requirement E1
+// long form command name, nonexisting classroom
+// expected output:
+// Classroom not found
+
+Classroom: 5 Teacher
+
+// TC-33
+// Testing Requirement E1
+// long form command name, nonexisting grade
+// expected output:
+// No teacher in this grade
+
+Grade: 5 Teacher
+
