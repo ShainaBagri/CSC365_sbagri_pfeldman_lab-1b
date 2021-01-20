@@ -1,0 +1,330 @@
+// CSC 365
+// Lab 1-b test suite
+
+// TC-1
+
+         StLastName StFirstName  Grade  Classroom TLastName TFirstName
+      19      HAVIR      BOBBIE      2        108     HAMER      GAVIN
+
+
+// TC-2
+         StLastName StFirstName  Grade  Classroom TLastName TFirstName
+       9     CORKER      CARTER      4        105     HANTZ        JED
+
+
+// TC-3
+         StLastName StFirstName  Bus
+      9     CORKER      CARTER   53
+
+
+// TC-4
+         StLastName StFirstName  Bus
+      19      HAVIR      BOBBIE    0
+
+
+// TC-5
+     StLastName StFirstName
+ 17  WORBINGTON      DEEDRA
+ 21    SPANICEK      KENDRA
+ 23       GUICE        CODI
+ 33        GLOR        HUNG
+ 39         GUM        NOAH
+ 47      NOVICK     ROLLAND
+ 53      DELUNA     KRYSTAL
+ 59        COMO      ZANDRA
+
+
+// TC-6
+    StLastName StFirstName
+ 51     DURAND      CARLEE
+
+
+// TC-7
+    StLastName StFirstName
+ 38     SAELEE      DANILO
+ 46      GARTH        JOHN
+
+
+// TC-8
+     StLastName StFirstName
+ 0       COOKUS        XUAN
+ 2     ELHADDAD      SHANTE
+ 8    BRODERSEN         HYE
+ 12    SWEDLUND      SHARRI
+ 18     CIGANEK       MANIE
+ 28   COVINGTON       TOMAS
+ 29       EARLY        TORY
+ 43     LINHART        LELA
+ 49  THEUNISSEN       GRACE
+
+
+// TC-9
+    StLastName StFirstName  Grade  Classroom
+ 0      COOKUS        XUAN      3        107
+ 2    ELHADDAD      SHANTE      3        107
+ 10   IMMERMAN       DEVIN      4        105
+ 14     OBREIN        STAN      6        111
+ 16   CORONADO      DIMPLE      6        102
+ 26      SARAO      DIEDRA      2        108
+ 29      EARLY        TORY      3        107
+ 35    KEMERER     ROSETTA      6        102
+
+
+// TC-10
+     StLastName StFirstName  Grade  Classroom
+ 3    RACANELLO        NOEL      6        102
+ 7      VILARDO    EMMANUEL      2        104
+ 32       KRAKE    VALENTIN      6        109
+ 36        BEAN       INGER      6        111
+ 40    BUSSMANN       BILLY      2        108
+ 50  FEYEREISEN    WILFREDO      6        111
+
+
+// TC-11
+    StLastName StFirstName   GPA TLastName TFirstName  Bus
+ 12   SWEDLUND      SHARRI  3.24    FAFARD      ROCIO   55
+ 
+
+// TC-12
+    StLastName StFirstName   GPA TLastName TFirstName  Bus
+ 46      GARTH        JOHN  3.14    FALKER     ADOLPH    0
+
+
+// TC-13
+    StLastName StFirstName   GPA TLastName TFirstName  Bus
+ 38     SAELEE      DANILO  2.85    FALKER     ADOLPH   54
+
+
+// TC-14
+    StLastName StFirstName   GPA TLastName TFirstName  Bus
+ 18    CIGANEK       MANIE  2.79    FAFARD      ROCIO   53
+
+
+// TC-15
+Grade   Average GPA
+1        2.995
+
+
+// TC-16
+Grade   Average GPA
+3        3.048888888888889
+
+
+// TC-17
+0:  0
+1:  2
+2:  13
+3:  9
+4:  15
+5:  0
+6:  21
+
+
+// TC-18
+No students in this grade
+
+
+// TC-19
+Type your command:
+
+
+// TC-20
+Bus route not found
+
+
+// TC-21
+Type your command:
+
+
+// TC-22
+No teacher with this last name exists
+
+
+// TC-23
+   StLastName StFirstName
+3   RACANEL4O        NOEL
+16   CORONADO      DIMPLE
+24     BOYTER         WAN
+35    KEMERER     ROSETTA
+45  DEMARTINI     DEWAYNE
+
+
+// TC-24
+  StLastName StFirstName
+4    WOOLERY       NOLAN
+7    VILARDO    EMMANUEL
+
+
+// TC-25
+    TLastName TFirstName
+11  CHIONCHIO      PERLA
+
+
+// TC-26
+  TLastName TFirstName
+8   GAMBREL        JAE
+
+
+// TC-27
+     TLastName TFirstName
+ 11  CHIONCHIO      PERLA
+
+
+// TC-28
+  TLastName TFirstName
+2    FALKER     ADOLPH
+
+
+// TC-29
+101   1
+102   5
+103   2
+104   2
+105   6
+106   2
+107   7
+108   11
+109   5
+110   2
+111   9
+112   8
+
+
+// TC-30
+Classroom not found
+
+
+// TC-31
+Classroom not found
+
+
+// TC-32
+No teacher in this grade
+
+
+// TC-33
+    GPA  Grade  Bus       TLastName     TFirstName
+34  2.76      2   55         [HAMER]       [ GAVIN]
+10  2.78      4   52         [HANTZ]         [ JED]
+32  2.78      6   56       [GAMBREL]         [ JAE]
+26  2.79      2   52         [HAMER]       [ GAVIN]
+18  2.79      3   53        [FAFARD]       [ ROCIO]
+44  2.80      4    0         [HANTZ]         [ JED]
+6   2.81      6    0    [NISTENDIRK]       [ NANCY]
+52  2.82      4   55         [HANTZ]         [ JED]
+25  2.82      6   54    [NISTENDIRK]       [ NANCY]
+20  2.84      4   54         [HANTZ]         [ JED]
+35  2.84      6   52         [KERBS]      [ BENITO]
+36  2.84      6   56    [NISTENDIRK]       [ NANCY]
+38  2.85      1   54        [FALKER]      [ ADOLPH]
+57  2.85      6    0       [GAMBREL]         [ JAE]
+2   2.86      3   52        [FAFARD]       [ ROCIO]
+33  2.87      4   54     [CHIONCHIO]       [ PERLA]
+19  2.88      2    0         [HAMER]       [ GAVIN]
+7   2.88      2   56         [STEIB]        [ GALE]
+48  2.88      6    0       [GAMBREL]         [ JAE]
+16  2.88      6   52         [KERBS]      [ BENITO]
+22  2.88      6   55    [NISTENDIRK]       [ NANCY]
+30  2.89      2   54         [HAMER]       [ GAVIN]
+50  2.89      6   56    [NISTENDIRK]       [ NANCY]
+29  2.91      3   52        [FAFARD]       [ ROCIO]
+51  2.91      4   51          [COOL]      [ REUBEN]
+4   2.92      2   51         [STEIB]        [ GALE]
+54  2.92      2   54         [HAMER]       [ GAVIN]
+41  2.93      2   54         [HAMER]       [ GAVIN]
+45  2.93      6   55         [KERBS]      [ BENITO]
+39  2.95      4   54     [CHIONCHIO]       [ PERLA]
+14  2.95      6   52    [NISTENDIRK]       [ NANCY]
+11  2.96      2   51         [HAMER]       [ GAVIN]
+47  2.97      4   54     [CHIONCHIO]       [ PERLA]
+23  2.98      4   54     [CHIONCHIO]       [ PERLA]
+17  2.99      4   53     [CHIONCHIO]       [ PERLA]
+59  3.00      4   53     [CHIONCHIO]       [ PERLA]
+40  3.01      2   56         [HAMER]       [ GAVIN]
+53  3.02      4   53     [CHIONCHIO]       [ PERLA]
+5   3.02      6   51    [NISTENDIRK]       [ NANCY]
+58  3.03      6   51      [BODZIONY]         [ LUZ]
+42  3.05      2   54         [HAMER]       [ GAVIN]
+0   3.07      3   52        [FAFARD]       [ ROCIO]
+37  3.09      2   51         [HAMER]       [ GAVIN]
+21  3.10      4   53     [CHIONCHIO]       [ PERLA]
+24  3.10      6   55         [KERBS]      [ BENITO]
+8   3.11      3    0        [ALPERT]    [ JONATHAN]
+28  3.11      3   51        [FAFARD]       [ ROCIO]
+43  3.12      3   53        [FAFARD]       [ ROCIO]
+15  3.12      4   51         [HANTZ]         [ JED]
+9   3.12      4   53         [HANTZ]         [ JED]
+3   3.13      6   56         [KERBS]      [ BENITO]
+46  3.14      1    0        [FALKER]      [ ADOLPH]
+27  3.14      6   53       [GAMBREL]         [ JAE]
+1   3.15      6    0       [GAMBREL]         [ JAE]
+13  3.15      6   55      [BODZIONY]         [ LUZ]
+31  3.22      2   53         [HAMER]       [ GAVIN]
+55  3.22      6   55    [NISTENDIRK]       [ NANCY]
+49  3.23      3   54        [ALPERT]    [ JONATHAN]
+56  3.23      6   55    [NISTENDIRK]       [ NANCY]
+12  3.24      3   55        [FAFARD]       [ ROCIO]
+
+
+// TC-34
+     GPA       TLastName     TFirstName
+34  2.76         [HAMER]       [ GAVIN]
+32  2.78       [GAMBREL]         [ JAE]
+10  2.78         [HANTZ]         [ JED]
+18  2.79        [FAFARD]       [ ROCIO]
+26  2.79         [HAMER]       [ GAVIN]
+44  2.80         [HANTZ]         [ JED]
+6   2.81    [NISTENDIRK]       [ NANCY]
+25  2.82    [NISTENDIRK]       [ NANCY]
+52  2.82         [HANTZ]         [ JED]
+20  2.84         [HANTZ]         [ JED]
+36  2.84    [NISTENDIRK]       [ NANCY]
+35  2.84         [KERBS]      [ BENITO]
+38  2.85        [FALKER]      [ ADOLPH]
+57  2.85       [GAMBREL]         [ JAE]
+2   2.86        [FAFARD]       [ ROCIO]
+33  2.87     [CHIONCHIO]       [ PERLA]
+48  2.88       [GAMBREL]         [ JAE]
+7   2.88         [STEIB]        [ GALE]
+16  2.88         [KERBS]      [ BENITO]
+19  2.88         [HAMER]       [ GAVIN]
+22  2.88    [NISTENDIRK]       [ NANCY]
+30  2.89         [HAMER]       [ GAVIN]
+50  2.89    [NISTENDIRK]       [ NANCY]
+29  2.91        [FAFARD]       [ ROCIO]
+51  2.91          [COOL]      [ REUBEN]
+4   2.92         [STEIB]        [ GALE]
+54  2.92         [HAMER]       [ GAVIN]
+41  2.93         [HAMER]       [ GAVIN]
+45  2.93         [KERBS]      [ BENITO]
+14  2.95    [NISTENDIRK]       [ NANCY]
+39  2.95     [CHIONCHIO]       [ PERLA]
+11  2.96         [HAMER]       [ GAVIN]
+47  2.97     [CHIONCHIO]       [ PERLA]
+23  2.98     [CHIONCHIO]       [ PERLA]
+17  2.99     [CHIONCHIO]       [ PERLA]
+59  3.00     [CHIONCHIO]       [ PERLA]
+40  3.01         [HAMER]       [ GAVIN]
+53  3.02     [CHIONCHIO]       [ PERLA]
+5   3.02    [NISTENDIRK]       [ NANCY]
+58  3.03      [BODZIONY]         [ LUZ]
+42  3.05         [HAMER]       [ GAVIN]
+0   3.07        [FAFARD]       [ ROCIO]
+37  3.09         [HAMER]       [ GAVIN]
+21  3.10     [CHIONCHIO]       [ PERLA]
+24  3.10         [KERBS]      [ BENITO]
+28  3.11        [FAFARD]       [ ROCIO]
+8   3.11        [ALPERT]    [ JONATHAN]
+9   3.12         [HANTZ]         [ JED]
+43  3.12        [FAFARD]       [ ROCIO]
+15  3.12         [HANTZ]         [ JED]
+3   3.13         [KERBS]      [ BENITO]
+27  3.14       [GAMBREL]         [ JAE]
+46  3.14        [FALKER]      [ ADOLPH]
+1   3.15       [GAMBREL]         [ JAE]
+13  3.15      [BODZIONY]         [ LUZ]
+31  3.22         [HAMER]       [ GAVIN]
+55  3.22    [NISTENDIRK]       [ NANCY]
+56  3.23    [NISTENDIRK]       [ NANCY]
+49  3.23        [ALPERT]    [ JONATHAN]
+12  3.24        [FAFARD]       [ ROCIO]

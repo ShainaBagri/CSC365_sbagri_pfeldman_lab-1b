@@ -1,0 +1,76 @@
+Team Members: Piper Feldman and Shaina Bagri
+
+We used Python to develop since Shaina has experience using the pandas package in Python from her data science class.
+Piper had experience using the Visual Studio Code Liveshare, so we developed in a VS Code environment. We also used GitHub
+and git to facilitate collaboration on the code development. We essentially kept the same initial decisions from Part A.
+We decided to split up each command into a separate function to make the code more readable and easier to debug. We primarily
+used the dataframe structure that comes with the pandas package. This structure allowed us to easily parse the csv file into a 
+database structure. We continued with the same internal architecture from Part A.
+
+To accomodate new input data, we created two separate dataframes - one for the list.txt file (df_students) and one for the 
+teachers.txt file (df_teachers). Both dataframes shared a common attribute of 'Classroom', allowing us to pair information
+from one database with corresponding information from the other database. In addition to main, the following functions from
+Part A were affected: 
+    lastNameSearch
+    teacherSearch
+    lowestGPA
+    highestGPA
+Our biggest struggle was appending the teacher information to the student dataframe in the cases where there was multiple teachers 
+in a classroom.
+
+The syntax and semantics of the query language are specified in the README. Here are some examples of queries:                               
+    Classroom: 102 Student
+        // C[lassroom]: <number> S[tudent]
+        // Search students by classroom
+    Classroom: 109 Teacher
+        // C[lassroom]: <number> T[eacher]
+        // Search teachers by classroom
+    Grade: 4 Teacher
+        // G[rade]: <number> T[eacher]
+        // Search teachers by grade
+    Grade: 3 Student
+        // G[rade]: <number> S[tudent]
+        // Search students by grade
+    Enrollment
+        // E[nrollment]
+        // Print list of classrooms and number of students per classroom
+    Data
+        // D[ata]
+        // For each student, displays raw GPA, Grade, Bus, and Teacher information so that data analysis can be performed
+    Data Grade
+        // D[ata] G[rade]
+        // For each student, displays raw GPA and Grade information so that data analysis can be performed
+    Data Bus
+        // D[ata] B[us]
+        // For each student, displays raw GPA and Bus information so that data analysis can be performed
+    Data Teacher
+        // D[ata] T[eacher]
+        // For each student, displays raw GPA and Teacher information so that data analysis can be performed
+
+Task Log
+Task                                    Person          Duration    Date and Time
+Create Database                         Shaina          5min        1/18 4:00pm-4:05pm
+Editing last name search                Piper           45min       1/18 4:05pm-4:50pm
+Searching for teacher name              Shaina          15min       1/18 4:05pm-4:20pm
+Finding low/high GPA                    Shaina          30min       1/18 4:20pm-4:50pm
+Find students from classroom            Shaina          5min        1/19 11:20am-11:25am
+Find teachers from classroom            Piper           5min        1/19 11:00am-11:05am
+Find teacher by grade                   Piper           10min       1/19 11:05am-11:15am
+Find enrollment by class                Shaina          10min       1/19 11:25am-11:35am
+Data Analysis Info classes              Shaina          20min       1/19 7:30pm-7:50pm
+
+Notes on testing
+Task                        Person        Bugs Found                                                Duration     Date and Time
+
+Editing last name search    Piper         Wrong size list appended to dataframe, was not            15min        1/18 4:35pm-4:50pm
+                                          filtering the proper dataframe
+Searching for teacher name  Shaina        Found classroom was a series, not an integer value        8min         1/18 4:12pm-4:20pm
+                                          to be compared
+Finding low/high GPA        Shaina        Teacher name not appending correctly to student info      15min        1/18 4:35pm-4:50pm
+Adding lists to dataframe   Both          Struggled with list datatype in dataframe, converted      90min        1/19 6:00pm-7:30pm
+                                          column to object type
+Error handling for commands Piper         Made sure commands have proper number of flags            10min        1/19 7:30pm-7:45pm
+
+Final notes:
+While commands are case sensitive, user inputs such as last names are not. While parsing the user input, we convert the student or
+teacher names given to be entirely uppercase. The formats of the commands that can be invoked are listed in the README.
