@@ -7,6 +7,46 @@ We decided to split up each command into a separate function to make the code mo
 used the dataframe structure that comes with the pandas package. This structure allowed us to easily parse the csv file into a 
 database structure. We continued with the same internal architecture from Part A.
 
+To accomodate new input data, we created two separate dataframes - one for the list.txt file (df_students) and one for the 
+teachers.txt file (df_teachers). Both dataframes shared a common attribute of 'Classroom', allowing us to pair information
+from one database with corresponding information from the other database. In addition to main, the following functions from
+Part A were affected: 
+    lastNameSearch
+    teacherSearch
+    lowestGPA
+    highestGPA
+Our biggest struggle was appending the teacher information to the student dataframe in the cases where there was multiple teachers 
+in a classroom.
+
+The syntax and semantics of the query language are specified in the README. Here are some examples of queries:                               
+    Classroom: 102 Student
+        // C[lassroom]: <number> S[tudent]
+        // Search students by classroom
+    Classroom: 109 Teacher
+        // C[lassroom]: <number> T[eacher]
+        // Search teachers by classroom
+    Grade: 4 Teacher
+        // G[rade]: <number> T[eacher]
+        // Search teachers by grade
+    Grade: 3 Student
+        // G[rade]: <number> S[tudent]
+        // Search students by grade
+    Enrollment
+        // E[nrollment]
+        // Print list of classrooms and number of students per classroom
+    Data
+        // D[ata]
+        // For each student, displays raw GPA, Grade, Bus, and Teacher information so that data analysis can be performed
+    Data Grade
+        // D[ata] G[rade]
+        // For each student, displays raw GPA and Grade information so that data analysis can be performed
+    Data Bus
+        // D[ata] B[us]
+        // For each student, displays raw GPA and Bus information so that data analysis can be performed
+    Data Teacher
+        // D[ata] T[eacher]
+        // For each student, displays raw GPA and Teacher information so that data analysis can be performed
+
 Task Log
 Task                                    Person          Duration    Date and Time
 Create Database                         Shaina          5min        1/18 4:00pm-4:05pm

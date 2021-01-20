@@ -70,7 +70,7 @@ Teacher: COOL
 // 38     SAELEE      DANILO
 // 46      GARTH        JOHN
 
-G: 1
+G: 1 S
 
 // TC-8
 // Tests Requirements R3, R7
@@ -87,7 +87,7 @@ G: 1
 // 43     LINHART        LELA
 // 49  THEUNISSEN       GRACE
 
-Grade: 3
+Grade: 3 Student
 
 // TC-9
 // Tests Requirements R3, R8
@@ -193,7 +193,7 @@ Info
 // expected output:
 // No students in this grade
 
-G: 10
+G: 10 S
 
 // TC-19
 // Testing Requirement E1

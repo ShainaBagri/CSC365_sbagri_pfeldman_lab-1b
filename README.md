@@ -10,7 +10,7 @@ S[tudent]: <lastname> [B[us]]
 T[eacher]: <lastname>
 B[us]: <number>
 G[rade]: <number> S[tudent]|T[eacher]|H[igh]|L[ow]
-C[lassroom] <number> S[tudent]|T[eacher]
+C[lassroom]: <number> S[tudent]|T[eacher]
 A[verage]: <number>
 D[ata] [G[rade]|B[us]|T[eacher]]
 E[nrollment]
